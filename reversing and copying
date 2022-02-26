@@ -1,0 +1,75 @@
+#include<stdio.h>
+
+#include<conio.h>
+
+int main()
+
+{
+
+  FILE *fp;
+
+  char ch, fname[30], newch[500];
+
+  int i=0, j, count=0;
+
+  printf(" filename with extension: ");
+
+  gets(fname);
+
+  fp = fopen(fname, "r");
+
+  if(!fp)
+
+  {
+
+    printf("Error \nExiting...");
+
+    getch();
+
+    return 0;
+
+  }
+
+  printf("\noriginal :\n\n");
+
+  ch = getc(fp);
+
+  while(ch != EOF)
+
+  {
+
+    count++;
+
+    putchar(ch);
+
+    newch[i] = ch;
+
+    i++;
+
+    ch = getc(fp);
+
+  }
+
+  printf("\n\n\n");
+
+  printf(" reverse order is:\n\n");
+
+  for(j=(count-1); j>=0; j--)
+
+  {
+
+    ch = newch[j];
+
+    printf("%c", ch);
+
+  }
+
+  printf("\n");
+
+  getch();
+
+  return 0;
+
+}
+
+
